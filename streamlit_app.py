@@ -21,4 +21,4 @@ num = ["age", "balance", "duration", "campaign", "pdays", "previous"]
 pxy = pd.concat({col: xtrain[col].loc[ytrain=="yes"].value_counts()/len(ytrain[ytrain=="yes"]) if col not in num else pd.Series({"var": np.var(xtrain[col].loc[ytrain=="yes"]), "mu": np.mean(xtrain[col].loc[ytrain=="yes"])}) for col in xtrain.columns}).rename("count")
 
 st.write('''## Probabilities of P(x|y)''')
-st.bar_chart(~pxy[num])
+pxy.apply(lambda p:st.bar_chart(p) if p not in num, axis=1)
