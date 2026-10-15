@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import numpy as np
-import matpltlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 path = kagglehub.dataset_download("janiobachmann/bank-marketing-dataset", path="bank.csv")
 
