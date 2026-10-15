@@ -11,7 +11,7 @@ df = pd.read_csv(path)
 x = df[df.columns.drop(["deposit"])]
 y = df["deposit"]
 
-xtrain, xtest, ytrian, ytest = train_test_split(x,y, test_size=0.2, random_state=42)
+xtrain, xtest, ytrain, ytest = train_test_split(x,y, test_size=0.2, random_state=42)
 
 py = len(ytrain[ytrain=="yes"])/len(ytrain)
 
