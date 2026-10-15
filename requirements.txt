@@ -3,4 +3,4 @@ numpy
 streamlit
 kagglehub
 matplotlib
-sklearn
+scikit-learn
