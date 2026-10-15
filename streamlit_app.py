@@ -2,7 +2,7 @@ import kagglehub
 import streamlit as st
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.metrices import accuracy_score
+from sklearn.metrics import accuracy_score
 
 path = kagglehub.dataset_download("janiobachmann/bank-marketing-dataset", path="bank.csv")
 
