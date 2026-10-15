@@ -23,4 +23,4 @@ pxy = pd.concat({col: xtrain[col].loc[ytrain=="yes"].value_counts()/len(ytrain[y
 
 st.write(pxy)
 st.write('''## Probabilities of P(x|y)''')
-pxy.apply(lambda p:st.bar_chart(p) if p.name not in num else st.pyplot((lambda f:(f.gca().plot(x:= np.linspace(mu-4*np.sqrt(var), mu+4*np.sqrt(var),500),np.exp(-(x-p.mu)**2/(2*p.var))/np.sqrt(2*np.pi*p.var)), f[1])(plt.figure()))))
+pxy.groupby(level=0).apply(lambda p:st.bar_chart(p) if p.name not in num else st.pyplot((lambda f:(f.gca().plot(x:= np.linspace(mu-4*np.sqrt(var), mu+4*np.sqrt(var),500),np.exp(-(x-p.mu)**2/(2*p.var))/np.sqrt(2*np.pi*p.var)), f[1])(plt.figure()))))
