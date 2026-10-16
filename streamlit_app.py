@@ -35,3 +35,10 @@ st.write('''## Probabilities of P(x|n)''')
 pxn.groupby(level=0).apply(lambda p:(st.markdown(f'''### {p.name}'''), st.bar_chart(p.droplevel(0)), None)[-1] if p.name not in num else (st.write(f'''### {p.name}'''), st.pyplot((lambda f:(f.gca().plot(x:= np.linspace(p.xs("mu", level=1).iloc[0]-4*np.sqrt(p.xs("var", level=1).iloc[0]), p.xs("mu", level=1).iloc[0]+4*np.sqrt(p.xs("var", level=1).iloc[0]), 500), np.exp(-(x-p.xs("mu", level=1).iloc[0])**2/(2*p.xs("var", level=1).iloc[0]))/np.sqrt(2*np.pi*p.xs("var", level=1).iloc[0])),f)[1])(plt.figure()))))
 
 pnx = xtest.apply(lambda row: np.log(pn) + sum(np.log(pxn[col][row[col]] if col not in num else ((1/np.sqrt(2*np.pi*pxn[col]["var"]))*np.exp(-((row[col]-pxn[col]["mu"])**2)/(2*pxn[col]["var"])))) for col in row.index), axis=1)
+
+pred = pyx>pnx
+
+yhat = pd.Series(np.where(pred, "yes", "no"))
+
+st.write('''## Accuracy''')
+st.write(accuracy_score(yhat,ytest))
