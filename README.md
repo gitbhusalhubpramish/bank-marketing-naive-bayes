@@ -39,4 +39,16 @@ The work flow of the project look like ths:
 - **Visulization:** Well, This algorithm doesn't have any special thing to visulize though I ploted the likehood ($P(x|y)$ and $P(x|n)$).
 - **Comparisn:** Here $P(n|x)$ and $P(y|x)$ are compared and returned which one is greater (*y mean yes and n mean no*).
 
+## What did I learn?
 
+I had made this project to learn Gussian Naive bayes form scratch. Ofcource, I had learnt that. But other stuff too like:
+
+- Naive-bayes.
+- Gussian approch.
+- Some calc stuff.
+- Probabilities.
+- Data visulization and plotting.
+
+## Some extra info...
+
+I have been learning Meachine Learning so i make note and make atleast one project for each. I have writtern a jupiter notebook to plan and make this work then I make a python script file with the help of streamlit so that I can host and support Hackclub. Most of the progress of learning the algorithm is in my notebook while I struggle a lot to plot the data too in the script file. I made this to lean so it has very less AI implimented. It seams very rough and mess but I known how it works and why it works.
