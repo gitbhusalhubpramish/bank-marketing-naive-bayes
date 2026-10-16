@@ -10,4 +10,22 @@ This is one of the probability distribution image of the algorithm. It is hard t
 
 Naive-Bayes is a Probability bashed supervised Meachine Learning algorithm. It uses Probabilities (Bayes theorem) to predict or classify any data. There are 2 types of Naive bayes - Categorical and Gussian. I have used both here. Categorial are used for catorigal data while gussian is used for numerical data.
 
+## Feature
+
+This project was made by me to understand Naive-bayes trom scratch so it has naive-bayes applied from scratch. But also:
+
+- Naive-bayes from scratch.
+- Gussian approch.
+- Stats.
+- Data Visulization
+
+## Tech-Stack
+
+This project python liberies used for datascience - visulizaion, calculation and datamanipulation. I've used:
+
+- Numpy for calculation.
+- matplotlib and streamlit for data visulization
+- pandas for CSV and data manipulation.
+- sk-learn for accuracy calculation and data split.
+
 
