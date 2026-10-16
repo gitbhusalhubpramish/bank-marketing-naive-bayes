@@ -28,4 +28,15 @@ This project python liberies used for datascience - visulizaion, calculation and
 - pandas for CSV and data manipulation.
 - sk-learn for accuracy calculation and data split.
 
+## Work-flow
+
+The work flow of the project look like ths:
+
+- **Fetch data:** Here it fetches the data from kaggle dataset.
+- **Data Shepration:** Here the algorithm shaprate the data into 2(4) parts for training and testing with x and y each.
+- **Calcuate $P(y|x)$ :** Here the model calculates $P(y|x)$ by calculate the variable required for this using log spacing naive bayes. It used catogral for catogral data and gussian for numeric data.
+- **Calcuate $P(n|x)$ :** Here the model calculate $P(n|x)$ - probability of being no by calculating the variable required for this using loc spacing and naive bayes.
+- **Visulization:** Well, This algorithm doesn't have any special thing to visulize though I ploted the likehood ($P(x|y)$ and $P(x|n)$).
+- **Comparisn:** Here $P(n|x)$ and $P(y|x)$ are compared and returned which one is greater (*y mean yes and n mean no*).
+
 
