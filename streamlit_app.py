@@ -26,3 +26,8 @@ st.write('''## Probabilities of P(x|y)''')
 pxy.groupby(level=0).apply(lambda p:(st.markdown(f'''### {p.name}'''),st.bar_chart(p.droplevel(0)), None)[-1] if p.name not in num else (st.write(f'''### {p.name}'''),st.pyplot((lambda f:(f.gca().plot(x:= np.linspace(p.xs("mu", level=1).iloc[0]-4*np.sqrt(p.xs("var", level=1).iloc[0]), p.xs("mu",level=1).iloc[0]+4*np.sqrt(p.xs("var", level=1).iloc[0]),500),np.exp(-(x-p.xs("mu",level=1).iloc[0])**2/(2*p.xs("var", level=1).iloc[0]))/np.sqrt(2*np.pi*p.xs("var", level=1).iloc[0])), f)[1])(plt.figure()))))
 
 pyx = xtest.apply(lambda row: np.log(py)+sum(np.log(pxy[col][row[col]] if col not in num else ((1/np.sqrt(2*np.pi*pxy[col]["var"]))* np.exp(-((row[col]-pxy[col]["mu"])**2)/(2*pxy[col]["var"])))) for col in row.index), axis=1)
+
+pn = len(ytrain[ytrain=="no"])/len(ytrain)
+
+pxn = pd.concat({col: xtrain[col].loc[ytrain=="no"].value_counts()/len(ytrain[ytrain=="no"]) if col not in num else pd.Series({"var":np.var(xtrain[col].loc[ytrain=="no"]), "mu":np.mean(xtrain[col].loc[ytrain=="no"])}) for col in xtrain.columns}).rename("count")
+
